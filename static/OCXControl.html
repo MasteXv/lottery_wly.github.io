@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" for="VideoOCX" event="CBDevStatus(arrayid,status,code)">
+      OnCBDevStatus(arrayid, status, code);
+    </script>
+    <script>
+      function OnCBDevStatus(arrayid, status, code) {
+        // alert(arrayid, status, code);
+        // console.log(arrayid, status, code)
+        window.parent.postMessage({
+          params:{
+            'arrayid':arrayid,
+            'status':status,
+            'code':code
+          }
+        },'*')
+      }
+    </script>
+
+  </head>
+  <body>
+    <object id="VideoOCX" CLASSID="CLSID:D7431512-F61B-47A9-8F9B-0896DA0B3701" style="position:absolute;z-index:-1;" width="0"
+      height="0">
+      <param name="wmode" value="transparent">
+    </object>
+  </body>
+</html>
